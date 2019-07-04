@@ -1,0 +1,40 @@
+# $ dc build
+# $ dc up -d
+# $ dc exec hanami sh
+# $ dc exec hanami bundle install --clean
+# $ dc exec hanami bundle exec hanami server
+
+version: '3'
+
+services:
+  hanami:
+    build: .
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER_NAME: root
+      DATABASE_PASSWORD: root
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle:cached
+      # exclude volumes
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+      - /app/.git
+    depends_on:
+      - db
+    ports:
+      - ${PORT:-3000}:3000
+    stdin_open: true
+    tty: true
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+  bundle:
