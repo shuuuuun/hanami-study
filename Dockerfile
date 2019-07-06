@@ -13,6 +13,7 @@ RUN apk update \
   && apk add --no-cache \
     alpine-sdk \
     mariadb-dev \
+    mariadb-client \
     tzdata \
   && gem install bundler --no-document
 

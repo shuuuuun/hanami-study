@@ -4,6 +4,7 @@
 # $ dce hanami bundle install --clean
 # $ dce hanami bundle exec hanami db prepare
 # $ dce hanami bundle exec hanami server
+# $ dce hanami bundle exec hanami console
 
 version: '3'
 
