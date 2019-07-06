@@ -1,8 +1,9 @@
 # $ dc build
 # $ dc up -d
-# $ dc exec hanami sh
-# $ dc exec hanami bundle install --clean
-# $ dc exec hanami bundle exec hanami server
+# $ dce hanami sh
+# $ dce hanami bundle install --clean
+# $ dce hanami bundle exec hanami db prepare
+# $ dce hanami bundle exec hanami server
 
 version: '3'
 
@@ -12,7 +13,8 @@ services:
     environment:
       DATABASE_HOST: db
       DATABASE_USER_NAME: root
-      DATABASE_PASSWORD: root
+      DATABASE_PASSWORD: pass
+      DATABASE_URL: 'mysql2://root:pass@db:3306/hanami_study_development'
     volumes:
       - .:/app:cached
       - bundle:/usr/local/bundle:cached
@@ -24,14 +26,15 @@ services:
     depends_on:
       - db
     ports:
-      - ${PORT:-3000}:3000
+      - ${PORT:-2300}:2300
     stdin_open: true
     tty: true
 
   db:
     image: mysql:8
+    command: mysqld --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: pass
     volumes:
       - db-data:/var/lib/mysql
 
