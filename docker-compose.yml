@@ -2,13 +2,20 @@
 # $ dc up -d
 # $ dce hanami sh
 # $ dce hanami bundle install --clean
-# $ dce hanami bundle exec hanami db prepare
-# $ dce hanami bundle exec hanami server
+# $ dce hanami bundle exec hanami db create
+# $ dce hanami bundle exec hanami db migrate
+# $ dce hanami bundle exec hanami server --host=0.0.0.0
 # $ dce hanami bundle exec hanami console
 
 version: '3'
 
 services:
+  # test:
+  #   image: alpine
+  #   ports:
+  #     - 2323:2323
+  #   stdin_open: true
+  #   tty: true
   hanami:
     build: .
     environment:
