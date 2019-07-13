@@ -1,6 +1,6 @@
 RSpec.describe Api::Views::Books::Index, type: :view do
-  let(:exposures) { Hash[format: :html] }
-  let(:template)  { Hanami::View::Template.new('apps/api/templates/books/index.html.erb') }
+  let(:exposures) { Hash[format: :json] }
+  let(:template)  { Hanami::View::Template.new('apps/api/templates/books/show.json.erb') }
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }
 
