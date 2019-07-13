@@ -6,6 +6,8 @@ gem 'hanami-model', '~> 1.3'
 
 gem 'mysql2'
 
+gem 'committee'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
