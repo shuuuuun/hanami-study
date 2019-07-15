@@ -25,6 +25,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot'
   gem 'fixture_dependencies'
+  gem 'hanami-fabrication'
 end
 
 group :production do
