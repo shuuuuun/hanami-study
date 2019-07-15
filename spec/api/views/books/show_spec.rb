@@ -1,7 +1,8 @@
 RSpec.describe Api::Views::Books::Show, type: :view do
   # let(:book)      { double('book') }
   # let(:book)      { create('book') }
-  let(:book)      { build('book') }
+  # let(:book)      { build('book') }
+  let(:book)      { Fabricate.create(:book) }
   let(:exposures) { Hash[format: :json, book: book] }
   let(:template)  { Hanami::View::Template.new('apps/api/templates/books/show.json.erb') }
   let(:view)      { described_class.new(template, exposures) }
