@@ -24,6 +24,7 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'factory_bot'
+  gem 'fixture_dependencies'
 end
 
 group :production do
