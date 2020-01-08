@@ -5,7 +5,7 @@
 # $ docker container exec hanami-study bundle install --clean --path vendor/bundle
 # $ docker container exec hanami-study bundle exec hanami server
 
-FROM ruby:2.6.3-alpine
+FROM ruby:2.7-alpine
 
 RUN set -ex
 
