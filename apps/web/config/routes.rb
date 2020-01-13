@@ -7,3 +7,4 @@ get '/ping', to: ->(env) { [200, {}, ['pong']] }
 get '/', to: 'home#index'
 get '/users', to: 'users#index'
 get '/images', to: 'images#index'
+get '/images/:id', to: 'images#show'
