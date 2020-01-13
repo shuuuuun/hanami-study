@@ -6,6 +6,7 @@ gem 'hanami-model', '~> 1.3'
 
 gem 'mysql2'
 
+gem 'hamlit'
 gem 'committee'
 
 group :development do
