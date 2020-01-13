@@ -15,9 +15,9 @@ get '/', to: 'home#index'
 # patch '/images/:id', to: 'images#update'
 resources :images, only: [:index, :show, :new, :create, :edit, :update]
 
-get '/signup', to: 'users#new'
-post '/signup', to: 'users#create'
+get '/signup', to: 'users#new', as: :signup
+post '/signup', to: 'users#create', as: :signup
 
-get '/login', to: 'sessions#new'
-post '/login', to: 'sessions#create'
-delete '/logout', to: 'sessions#destroy'
+get '/login', to: 'sessions#new', as: :login
+post '/login', to: 'sessions#create', as: :login
+delete '/logout', to: 'sessions#destroy', as: :logout

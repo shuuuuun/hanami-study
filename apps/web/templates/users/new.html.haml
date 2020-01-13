@@ -1,0 +1,10 @@
+%h2 Signup
+
+!= form_for :user, routes.signup_path do
+  - div do
+    - label :email
+    - email_field :email
+  - div do
+    - label :password
+    - password_field :password
+  - submit 'Create'
