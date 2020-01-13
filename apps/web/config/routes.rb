@@ -9,10 +9,11 @@ get '/', to: 'home#index'
 
 # get '/images', to: 'images#index'
 # get '/images/:id', to: 'images#show'
-# get '/images/:id/edit', to: 'images#edit'
 # get '/images/new', to: 'images#new'
 # post '/images', to: 'images#create'
-resources :images, only: [:index, :show, :new, :create, :edit]
+# get '/images/:id/edit', to: 'images#edit'
+# patch '/images/:id', to: 'images#update'
+resources :images, only: [:index, :show, :new, :create, :edit, :update]
 
 get '/signup', to: 'users#new'
 post '/signup', to: 'users#create'
