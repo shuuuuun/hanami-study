@@ -5,7 +5,7 @@
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
 get '/ping', to: ->(env) { [200, {}, ['pong']] }
 
-get '/', to: 'home#index'
+get '/', to: 'home#index', as: :root
 
 # get '/images', to: 'images#index'
 # get '/images/:id', to: 'images#show'

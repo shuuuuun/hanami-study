@@ -28,5 +28,13 @@ module Web
     def current_user
       @current_user ||= UserRepository.new.find(session[:user_id])
     end
+
+    def reject_if_authenticated
+        redirect_to routes.root_path if authenticated?
+    end
+
+    def reject_unless_authenticated
+        redirect_to routes.root_path unless authenticated?
+    end
   end
 end
