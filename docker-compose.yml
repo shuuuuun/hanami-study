@@ -24,6 +24,7 @@ services:
       DATABASE_USER_NAME: root
       DATABASE_PASSWORD: pass
       DATABASE_URL: 'mysql2://root:pass@db:3306/hanami_study_development'
+      WEB_SESSIONS_SECRET: xxx
     volumes:
       - .:/app:cached
       - bundle:/usr/local/bundle:cached

@@ -15,6 +15,7 @@ module Web::Controllers::Users
     def call(params)
       if params.valid?
         @user = UserRepository.new.create(params[:user])
+        session[:user_id] = @user.id
 
         redirect_to routes.images_path
       else
