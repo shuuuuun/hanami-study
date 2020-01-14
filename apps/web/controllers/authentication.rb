@@ -9,6 +9,14 @@ module Web
 
     private
 
+    def login(user)
+      session[:user_id] = user.id
+    end
+
+    def logout
+      session[:user_id] = nil
+    end
+
     def authenticate!
       halt 401 unless authenticated?
     end

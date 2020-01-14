@@ -40,11 +40,12 @@ Hanami.configure do
 
   environment :development do
     # See: http://hanamirb.org/guides/projects/logging
-    logger level: :debug
+    # logger level: :debug
+    logger level: :debug, filter: %w[password password_confirmation]
   end
 
   environment :production do
-    logger level: :info, formatter: :json, filter: []
+    logger level: :info, formatter: :json, filter: %w[password password_confirmation]
 
     mailer do
       delivery :smtp, address: ENV.fetch('SMTP_HOST'), port: ENV.fetch('SMTP_PORT')

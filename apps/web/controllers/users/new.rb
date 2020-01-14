@@ -1,20 +1,16 @@
-module Web
-  module Controllers
-    module Users
-      class New
-        include Web::Action
-        expose :users
+module Web::Controllers::Users
+  class New
+    include Web::Action
+    expose :users
 
-        def call(params)
-          @user = UserRepository.new
-        end
+    def call(params)
+      @user = UserRepository.new
+    end
 
-        private
+    private
 
-        def authenticate!
-          # no-op
-        end
-      end
+    def authenticate!
+      # no-op
     end
   end
 end

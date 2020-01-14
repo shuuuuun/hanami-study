@@ -5,4 +5,6 @@
     %title Web
     != favicon
   %body
+    - if current_user
+      %div user: #{current_user.email}
     != yield
