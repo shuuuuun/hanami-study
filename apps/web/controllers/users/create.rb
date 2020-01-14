@@ -6,14 +6,10 @@ module Web::Controllers::Users
 
     params do
       required(:user).schema do
-        required(:email).filled(:str?)
-        required(:password).filled(:str?)
-        # required(:email).value(:filled?)
-        # required(:password).value(:filled?, size?: 8..40, format?: /\A[\w!$%@#123]+\z/).confirmation
+        required(:email).filled(:str?, format?: /@/).confirmation
+        required(:password).filled(:str?, size?: 8..32).confirmation
         # required(:password_confirmation).filled(:str?)
       end
-      # required(:email).filled(:str?, format?: /@/).confirmation
-      # required(:password).filled(:str?).confirmation
     end
 
     def call(params)
@@ -22,7 +18,8 @@ module Web::Controllers::Users
 
         redirect_to routes.images_path
       else
-        self.status = 422
+        self.status = 400
+        # self.status = 422
       end
     end
   end
