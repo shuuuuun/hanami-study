@@ -1,0 +1,12 @@
+-# TODO: show errors.
+!= form_for :user, routes.login_path do
+  - div do
+    - label :email
+    - email_field :email, required: true
+  - div do
+    - label :password
+    - password_field :password, required: true
+  - div do
+    - label :password_confirmation
+    - password_field :password_confirmation, required: true
+  - submit 'Login'
