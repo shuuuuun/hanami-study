@@ -5,11 +5,5 @@ module Web::Controllers::Users
 
     def call(params)
     end
-
-    private
-
-    def authenticate!
-      # no-op
-    end
   end
 end

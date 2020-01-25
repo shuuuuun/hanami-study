@@ -1,6 +1,7 @@
 module Web::Controllers::Users
   class Create
     include Web::Action
+    before :reject_if_authenticated
 
     expose :user
 
@@ -25,12 +26,6 @@ module Web::Controllers::Users
         self.status = 400
         flash[:error] = 'invalid params.'
       end
-    end
-
-    private
-
-    def authenticate!
-      # no-op
     end
   end
 end

@@ -5,11 +5,5 @@ module Web::Controllers::Sessions
 
     def call(params)
     end
-
-    private
-
-    def authenticate!
-      # no-op
-    end
   end
 end
