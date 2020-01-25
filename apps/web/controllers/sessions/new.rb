@@ -1,18 +1,15 @@
-module Web
-  module Controllers
-    module Sessions
-      class New
-        include Web::Action
+module Web::Controllers::Sessions
+  class New
+    include Web::Action
+    before :reject_if_authenticated
 
-        def call(params)
-        end
+    def call(params)
+    end
 
-        private
+    private
 
-        def authenticate!
-          # no-op
-        end
-      end
+    def authenticate!
+      # no-op
     end
   end
 end
