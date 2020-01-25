@@ -1,7 +1,8 @@
 %h1 Images
 
 - images.each do |image|
-  %p= image.email
+  %p= image.title
+  %p!= image image.image
 
 %p
   != link_to 'Upload New Image', routes.new_image_path
