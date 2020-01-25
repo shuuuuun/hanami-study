@@ -12,12 +12,11 @@ module Web::Controllers::Sessions
 
     def call(params)
       # Hanami.logger.debug "params: #{params.inspect}"
-      # @user = UserRepository.new.find(params[:user])
-      @user = UserRepository.new.find_by_email(params[:user][:email])
-      Hanami.logger.debug "@user: #{@user.inspect}"
-      # TODO: authenticate
-      if params.valid? && @user
-        login @user
+      # user = UserRepository.new.find(params[:user])
+      user = UserRepository.new.find_by_email(params[:user][:email])
+      Hanami.logger.debug "user: #{user.inspect}"
+      if params.valid? && user&.authenticate(params[:user][:password])
+        login user
 
         redirect_to routes.images_path
       else
