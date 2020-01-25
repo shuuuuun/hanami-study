@@ -5,6 +5,7 @@ module Web
         include Web::Action
 
         def call(params)
+          # TODO: image list
         end
       end
     end
