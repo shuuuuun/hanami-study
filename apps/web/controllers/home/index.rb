@@ -1,14 +1,8 @@
-module Web
-  module Controllers
-    module Home
-      class Index
-        include Web::Action
-        expose :users
+module Web::Controllers::Home
+  class Index
+    include Web::Action
 
-        def call(params)
-          @users = UserRepository.new.all
-        end
-      end
+    def call(params)
     end
   end
 end
