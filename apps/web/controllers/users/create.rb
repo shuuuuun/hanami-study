@@ -23,6 +23,7 @@ module Web::Controllers::Users
         Hanami.logger.info "invalid params. errors: #{params.errors}"
         self.status = 400
         # self.status = 422
+        flash[:error] = 'invalid params.'
       end
     end
 
