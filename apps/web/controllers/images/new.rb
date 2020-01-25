@@ -1,12 +1,8 @@
-module Web
-  module Controllers
-    module Images
-      class New
-        include Web::Action
+module Web::Controllers::Images
+  class New
+    include Web::Action
 
-        def call(params)
-        end
-      end
+    def call(params)
     end
   end
 end

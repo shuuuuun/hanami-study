@@ -1,14 +1,10 @@
-module Web
-  module Controllers
-    module Images
-      class Index
-        include Web::Action
-        expose :images
+module Web::Controllers::Images
+  class Index
+    include Web::Action
+    expose :images
 
-        def call(params)
-          @images = ImageRepository.new.all
-        end
-      end
+    def call(params)
+      @images = ImageRepository.new.all
     end
   end
 end
