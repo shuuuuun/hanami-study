@@ -18,6 +18,7 @@ module Web::Controllers::Sessions
       if params.valid? && user&.authenticate(params[:user][:password])
         login user
 
+        flash[:notice] = 'logged in.'
         redirect_to routes.images_path
       else
         Hanami.logger.info "invalid params. errors: #{params.errors}"

@@ -18,11 +18,11 @@ module Web::Controllers::Users
         @user = UserRepository.new.create(params[:user])
         login @user
 
-        redirect_to routes.images_path
+        flash[:notice] = 'signed up.'
+        redirect_to routes.root_path
       else
         Hanami.logger.info "invalid params. errors: #{params.errors}"
         self.status = 400
-        # self.status = 422
         flash[:error] = 'invalid params.'
       end
     end
