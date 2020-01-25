@@ -21,6 +21,10 @@ infra-up-d:
 infra-down:
 	docker-compose down
 
+.PHONY: infra-attach-hanami
+infra-attach-hanami:
+	docker attach `docker-compose ps -q hanami`
+
 .PHONY: infra-logs
 infra-logs:
 	docker-compose logs -f
