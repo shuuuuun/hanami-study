@@ -9,6 +9,9 @@ gem 'mysql2'
 gem 'hamlit'
 gem 'committee'
 
+# file uploader
+gem 'hanami-shrine'
+
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading
