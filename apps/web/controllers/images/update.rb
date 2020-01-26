@@ -1,6 +1,7 @@
 module Web::Controllers::Images
   class Update
     include Web::Action
+    before :reject_unless_authenticated
 
     params do
       required(:image).schema do
