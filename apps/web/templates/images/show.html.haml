@@ -1,7 +1,8 @@
 %h1 Images Show
 
-%p= image.title
-%p= image.image
+%figure
+  %figcaption= _image.title
+  %img{ src: _image.image_url, style: 'max-width: 100%' }
 
 %p
   != link_to 'Images List', routes.images_path
