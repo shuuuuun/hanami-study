@@ -1,8 +1,8 @@
-!= form_for :image, routes.images_path do
+!= form_for :image, routes.images_path, enctype: 'multipart/form-data' do
   - div do
     - label :title
     - text_field :title, required: true
   - div do
     - label :image
-    - file_field :image, required: true
+    - file_field :image, required: true, accept: %w[image/png image/jpeg]
   - submit 'Post'
