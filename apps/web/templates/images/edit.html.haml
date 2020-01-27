@@ -1,6 +1,19 @@
 %h2 Edit Image
 
-!= render partial: 'form'
+-# != render partial: 'form'
+!= form_for :image, routes.image_path(_image.id), enctype: 'multipart/form-data', method: 'PATCH' do
+  - div do
+    - label :title
+    - text_field :title, value: _image.title
+  - div do
+    - label :image
+    -# - hidden_field :image, value: _image.image_data
+    - file_field :image, accept: %w[image/png image/jpeg]
+  - submit 'Save'
+
+%figure
+  %figcaption= _image.title
+  %img{ src: _image.image_url, style: 'max-width: 500px' }
 
 %p
   != link_to 'Images List', routes.images_path

@@ -5,4 +5,7 @@
   %img{ src: _image.image_url, style: 'max-width: 100%' }
 
 %p
+  != link_to 'Edit', routes.edit_image_path(_image.id)
+
+%p
   != link_to 'Images List', routes.images_path
