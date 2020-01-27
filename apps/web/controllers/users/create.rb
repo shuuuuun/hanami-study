@@ -15,8 +15,9 @@ module Web::Controllers::Users
 
     def call(params)
       # Hanami.logger.debug "params: #{params.inspect}"
-      if params.valid?
-        @user = UserRepository.new.create(params[:user])
+      @user = UserRepository.new.create_or_nil(params[:user])
+      if params.valid? && @user
+        # @user = UserRepository.new.create(params[:user])
         login @user
 
         flash[:notice] = 'signed up.'
@@ -27,6 +28,11 @@ module Web::Controllers::Users
         flash[:error] = 'invalid params.'
         render :new
       end
+    # rescue Hanami::Model::UniqueConstraintViolationError => err
+    #   Hanami.logger.info err # Hanami::Model::UniqueConstraintViolationError: Mysql2::Error: Duplicate entry 'hoge@example.com' for key 'email'
+    #   self.status = 400
+    #   flash[:error] = 'invalid params.'
+    #   render :new
     end
   end
 end
