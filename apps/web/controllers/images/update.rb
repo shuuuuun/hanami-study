@@ -3,12 +3,14 @@ module Web::Controllers::Images
     include Web::Action
     before :reject_unless_authenticated
 
-    # params do
-    #   required(:image).schema do
-    #     required(:title).filled(:str?)
-    #     # required(:image).filled(:file?)
-    #   end
-    # end
+    MEGABYTE = 1024 ** 2
+
+    params do
+      required(:image).schema do
+        optional(:title).filled(:str?)
+        optional(:image).filled(size?: 1..(3 * MEGABYTE))
+      end
+    end
 
     def call(params)
       image_params = params[:image]

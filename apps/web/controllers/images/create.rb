@@ -5,14 +5,12 @@ module Web::Controllers::Images
 
     MEGABYTE = 1024 ** 2
 
-    # TODO: params of Images::Create
-    # params do
-    #   required(:image).schema do
-    #     required(:title).filled(:str?)
-    #     # required(:image) { size?(1..(5 * MEGABYTE)) }
-    #     required(:image)
-    #   end
-    # end
+    params do
+      required(:image).schema do
+        required(:title).filled(:str?)
+        required(:image).filled(size?: 1..(3 * MEGABYTE))
+      end
+    end
 
     def call(params)
       image_params = params[:image]
