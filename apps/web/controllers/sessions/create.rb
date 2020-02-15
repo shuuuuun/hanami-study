@@ -24,7 +24,7 @@ module Web::Controllers::Sessions
         Hanami.logger.info "invalid params. errors: #{params.errors}"
         self.status = 400
         flash[:error] = 'invalid params.'
-        render :new
+        redirect_to routes.login_path
       end
     end
   end

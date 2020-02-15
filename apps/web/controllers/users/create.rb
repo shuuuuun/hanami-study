@@ -26,7 +26,7 @@ module Web::Controllers::Users
         Hanami.logger.info "invalid params. errors: #{params.errors}"
         self.status = 400
         flash[:error] = 'invalid params.'
-        render :new
+        redirect_to routes.signup_path
       end
     # rescue Hanami::Model::UniqueConstraintViolationError => err
     #   Hanami.logger.info err # Hanami::Model::UniqueConstraintViolationError: Mysql2::Error: Duplicate entry 'hoge@example.com' for key 'email'

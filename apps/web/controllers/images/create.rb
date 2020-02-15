@@ -26,7 +26,7 @@ module Web::Controllers::Images
         Hanami.logger.info "invalid params. errors: #{params.errors}"
         self.status = 400
         flash[:error] = 'invalid params.'
-        render :new
+        redirect_to routes.new_image_path
       end
     end
   end
