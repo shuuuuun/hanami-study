@@ -6,6 +6,10 @@ gem 'hanami-model', '~> 1.3'
 
 gem 'mysql2'
 
+# authentication
+gem 'bcrypt'
+gem 'warden'
+
 gem 'hamlit'
 gem 'committee'
 

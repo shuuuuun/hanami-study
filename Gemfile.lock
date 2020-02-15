@@ -9,6 +9,7 @@ GEM
       zeitwerk (~> 2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.13)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -216,6 +217,8 @@ GEM
       thread_safe (~> 0.1)
     url_mount (0.2.1)
       rack
+    warden (1.2.8)
+      rack (>= 2.0.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.2.2)
@@ -224,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   committee
   dotenv (~> 2.4)
@@ -240,6 +244,7 @@ DEPENDENCIES
   rake
   rspec
   shotgun
+  warden
 
 BUNDLED WITH
    2.1.4
