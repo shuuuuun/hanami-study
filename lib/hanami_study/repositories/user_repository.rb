@@ -1,7 +1,6 @@
 class UserRepository < Hanami::Repository
   # TODO: encrypt password/email
   # TODO: mask password/email values on logging
-  # TODO: make email unique
 
   associations do
     has_many :images

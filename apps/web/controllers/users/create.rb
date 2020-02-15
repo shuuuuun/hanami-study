@@ -1,8 +1,8 @@
 module Web::Controllers::Users
   class Create
     include Web::Action
+    handle_exception Hanami::Model::UniqueConstraintViolationError => 400
     before :reject_if_authenticated
-
     expose :user
 
     params do
@@ -28,11 +28,6 @@ module Web::Controllers::Users
         flash[:error] = 'invalid params.'
         redirect_to routes.signup_path
       end
-    # rescue Hanami::Model::UniqueConstraintViolationError => err
-    #   Hanami.logger.info err # Hanami::Model::UniqueConstraintViolationError: Mysql2::Error: Duplicate entry 'hoge@example.com' for key 'email'
-    #   self.status = 400
-    #   flash[:error] = 'invalid params.'
-    #   render :new
     end
   end
 end
