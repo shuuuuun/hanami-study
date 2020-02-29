@@ -22,6 +22,4 @@ WORKDIR /app
 
 EXPOSE 2300
 # CMD ["sh"]
-# CMD ["sh", "-c", "bundle exec hanami server --daemonize=true"]
-# CMD ["sh", "-c", "bundle exec hanami server"]
 CMD ["bundle", "exec", "hanami", "server", "--host=0.0.0.0"]

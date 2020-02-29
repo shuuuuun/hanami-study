@@ -1,13 +1,3 @@
-# $ dc build
-# $ dc up -d
-# $ dce hanami sh
-# $ dce hanami bundle install
-# $ dce hanami bundle install --clean --path vendor/bundle
-# $ dce hanami bundle exec hanami db create
-# $ dce hanami bundle exec hanami db migrate
-# $ dce hanami bundle exec hanami server --host=0.0.0.0
-# $ dce hanami bundle exec hanami console
-
 version: '3'
 
 services:

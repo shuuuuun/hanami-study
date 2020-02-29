@@ -33,22 +33,26 @@ infra-logs:
 db-console:
 	docker-compose exec db mysql -uroot -ppass
 
-.PHONY: exec-hanami-server
-exec-hanami-server:
+.PHONY: docker-hanami-server
+docker-hanami-server:
 	docker-compose exec hanami bundle exec hanami server --host=0.0.0.0
 
-.PHONY: exec-hanami-console
-exec-hanami-console:
+.PHONY: docker-hanami-console
+docker-hanami-console:
 	docker-compose exec hanami bundle exec hanami console
 
-.PHONY: exec-hanami-migrate
-exec-hanami-migrate:
+.PHONY: docker-hanami-migrate
+docker-hanami-migrate:
 	docker-compose exec hanami bundle exec hanami db migrate
 
-.PHONY: exec-hanami-routes
-exec-hanami-routes:
+.PHONY: docker-hanami-routes
+docker-hanami-routes:
 	docker-compose exec hanami bundle exec hanami routes
 
-.PHONY: run-hanami-test
-run-hanami-test:
+.PHONY: docker-hanami-shell
+docker-hanami-shell:
+	docker-compose run --rm hanami sh
+
+.PHONY: docker-hanami-test
+docker-hanami-test:
 	docker-compose run --rm -e HANAMI_ENV=test hanami bundle exec rspec
