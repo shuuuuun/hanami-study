@@ -18,7 +18,7 @@ services:
       WEB_SESSIONS_SECRET: xxx
     volumes:
       - .:/app:cached
-      - bundle:/usr/local/bundle:cached
+      - bundle:/usr/local/bundle
       # exclude volumes
       - /app/vendor
       - /app/tmp
