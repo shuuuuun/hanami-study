@@ -4,7 +4,7 @@ RSpec.describe Api::Views::Books::Show, type: :view do
   # let(:book)      { build('book') }
   let(:book)      { Fabricate.create(:book) }
   let(:exposures) { Hash[format: :json, book: book] }
-  let(:template)  { Hanami::View::Template.new('apps/api/templates/books/show.json.erb') }
+  let(:template)  { Hanami::View::Template.new('apps/api/templates/books/show.json.haml') }
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }
   let(:rendered_json) { JSON.parse(rendered).deep_symbolize_keys }
