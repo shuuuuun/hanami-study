@@ -5,3 +5,4 @@
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
 get '/', to: 'home#index', as: :root
 get '/home', to: 'home#index'
+get '/users', to: 'users#index'
