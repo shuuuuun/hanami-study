@@ -7,8 +7,11 @@
     %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}/
     / Font Awesome Icons
     %link{:href => "plugins/fontawesome-free/css/all.min.css", :rel => "stylesheet"}/
+    != stylesheet 'plugins/fontawesome-free/css/all.min.css'
+    -# TODO: npmから読み込むのはどうしたらいいか？
     / Theme style
     %link{:href => "dist/css/adminlte.min.css", :rel => "stylesheet"}/
+    != stylesheet 'dist/css/adminlte.min.css'
     / Google Font: Source Sans Pro
     %link{:href => "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", :rel => "stylesheet"}/
     %title Admin

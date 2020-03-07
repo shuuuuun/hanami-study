@@ -143,7 +143,11 @@ module Admin
         # Specify sources for assets
         #
         sources << [
-          'assets'
+          'assets',
+          # 'lib/adminlte',
+          # 'vendor/adminlte',
+          # 'node_modules',
+          # 'node_modules/admin-lte',
         ]
       end
 
