@@ -3,6 +3,7 @@ hanami-setup:
 	bundle install
 	bundle exec hanami db create
 	bundle exec hanami db migrate
+	# cd apps/admin && npm install # nodeはいってないわ
 
 .PHONY: infra-setup
 infra-setup:
@@ -33,6 +34,10 @@ infra-logs:
 db-console:
 	docker-compose exec db mysql -uroot -ppass
 
+.PHONY: docker-hanami-install
+docker-hanami-install:
+	docker-compose exec hanami bundle install
+
 .PHONY: docker-hanami-server
 docker-hanami-server:
 	docker-compose exec hanami bundle exec hanami server --host=0.0.0.0
@@ -48,6 +53,10 @@ docker-hanami-migrate:
 .PHONY: docker-hanami-routes
 docker-hanami-routes:
 	docker-compose exec hanami bundle exec hanami routes
+
+.PHONY: docker-hanami-assets-precompile
+docker-hanami-assets-precompile:
+	docker-compose run --rm hanami bundle exec hanami assets precompile
 
 .PHONY: docker-hanami-shell
 docker-hanami-shell:
