@@ -12,7 +12,6 @@ gem 'warden'
 
 gem 'hamlit'
 gem 'committee'
-gem 'sassc'
 
 # file uploader
 gem 'hanami-shrine'
