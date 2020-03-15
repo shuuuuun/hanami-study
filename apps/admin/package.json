@@ -1,0 +1,6 @@
+{
+  "name": "hanami-study",
+  "dependencies": {
+    "admin-lte": "^3.0.2"
+  }
+}
