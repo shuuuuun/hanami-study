@@ -6,18 +6,17 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}/
     / Font Awesome Icons
-    %link{:href => "adminlte/plugins/fontawesome-free/css/all.min.css", :rel => "stylesheet"}/
+    %link{:href => "/adminlte/plugins/fontawesome-free/css/all.min.css", :rel => "stylesheet"}/
     -# != stylesheet 'plugins/fontawesome-free/css/all.min.css'
     -# TODO: npmから読み込むのはどうしたらいいか？
     / Theme style
-    %link{:href => "adminlte/dist/css/adminlte.min.css", :rel => "stylesheet"}/
+    %link{:href => "/adminlte/dist/css/adminlte.min.css", :rel => "stylesheet"}/
     -# != stylesheet 'dist/css/adminlte.min.css'
     / Google Font: Source Sans Pro
     %link{:href => "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", :rel => "stylesheet"}/
     %title Admin
     != favicon
   %body.hold-transition.sidebar-mini
-    != yield
     .wrapper
       / Navbar
       %nav.main-header.navbar.navbar-expand.navbar-white.navbar-light
@@ -27,9 +26,9 @@
             %a.nav-link{"data-widget" => "pushmenu", :href => "#", :role => "button"}
               %i.fas.fa-bars
           %li.nav-item.d-none.d-sm-inline-block
-            %a.nav-link{:href => "index3.html"} Home
+            %a.nav-link{:href => routes.root_path} Home
           %li.nav-item.d-none.d-sm-inline-block
-            %a.nav-link{:href => "#"} Contact
+            %a.nav-link{:href => routes.users_path} Users
         / SEARCH FORM
         %form.form-inline.ml-3
           .input-group.input-group-sm
@@ -48,7 +47,7 @@
               %a.dropdown-item{:href => "#"}
                 / Message Start
                 .media
-                  %img.img-size-50.mr-3.img-circle{:alt => "User Avatar", :src => "adminlte/dist/img/user1-128x128.jpg"}/
+                  %img.img-size-50.mr-3.img-circle{:alt => "User Avatar", :src => "/adminlte/dist/img/user1-128x128.jpg"}/
                   .media-body
                     %h3.dropdown-item-title
                       Brad Diesel
@@ -63,7 +62,7 @@
               %a.dropdown-item{:href => "#"}
                 / Message Start
                 .media
-                  %img.img-size-50.img-circle.mr-3{:alt => "User Avatar", :src => "adminlte/dist/img/user8-128x128.jpg"}/
+                  %img.img-size-50.img-circle.mr-3{:alt => "User Avatar", :src => "/adminlte/dist/img/user8-128x128.jpg"}/
                   .media-body
                     %h3.dropdown-item-title
                       John Pierce
@@ -78,7 +77,7 @@
               %a.dropdown-item{:href => "#"}
                 / Message Start
                 .media
-                  %img.img-size-50.img-circle.mr-3{:alt => "User Avatar", :src => "adminlte/dist/img/user3-128x128.jpg"}/
+                  %img.img-size-50.img-circle.mr-3{:alt => "User Avatar", :src => "/adminlte/dist/img/user3-128x128.jpg"}/
                   .media-body
                     %h3.dropdown-item-title
                       Nora Silvester
@@ -118,19 +117,18 @@
           %li.nav-item
             %a.nav-link{"data-slide" => "true", "data-widget" => "control-sidebar", :href => "#", :role => "button"}
               %i.fas.fa-th-large
-      / /.navbar
       / Main Sidebar Container
       %aside.main-sidebar.sidebar-dark-primary.elevation-4
         / Brand Logo
         %a.brand-link{:href => "index3.html"}
-          %img.brand-image.img-circle.elevation-3{:alt => "AdminLTE Logo", :src => "adminlte/dist/img/AdminLTELogo.png", :style => "opacity: .8"}/
+          %img.brand-image.img-circle.elevation-3{:alt => "AdminLTE Logo", :src => "/adminlte/dist/img/AdminLTELogo.png", :style => "opacity: .8"}/
           %span.brand-text.font-weight-light AdminLTE 3
         / Sidebar
         .sidebar
           / Sidebar user panel (optional)
           .user-panel.mt-3.pb-3.mb-3.d-flex
             .image
-              %img.img-circle.elevation-2{:alt => "User Image", :src => "adminlte/dist/img/user2-160x160.jpg"}/
+              %img.img-circle.elevation-2{:alt => "User Image", :src => "/adminlte/dist/img/user2-160x160.jpg"}/
             .info
               %a.d-block{:href => "#"} Alexander Pierce
           / Sidebar Menu
@@ -160,76 +158,15 @@
                   %p
                     Simple Link
                     %span.right.badge.badge-danger New
-          / /.sidebar-menu
-        / /.sidebar
       / Content Wrapper. Contains page content
       .content-wrapper
-        / Content Header (Page header)
-        .content-header
-          .container-fluid
-            .row.mb-2
-              .col-sm-6
-                %h1.m-0.text-dark Starter Page
-              / /.col
-              .col-sm-6
-                %ol.breadcrumb.float-sm-right
-                  %li.breadcrumb-item
-                    %a{:href => "#"} Home
-                  %li.breadcrumb-item.active Starter Page
-              / /.col
-            / /.row
-          / /.container-fluid
-        / /.content-header
-        / Main content
-        .content
-          .container-fluid
-            .row
-              .col-lg-6
-                .card
-                  .card-body
-                    %h5.card-title Card title
-                    %p.card-text
-                      Some quick example text to build on the card title and make up the bulk of the card's
-                      content.
-                    %a.card-link{:href => "#"} Card link
-                    %a.card-link{:href => "#"} Another link
-                .card.card-primary.card-outline
-                  .card-body
-                    %h5.card-title Card title
-                    %p.card-text
-                      Some quick example text to build on the card title and make up the bulk of the card's
-                      content.
-                    %a.card-link{:href => "#"} Card link
-                    %a.card-link{:href => "#"} Another link
-                / /.card
-              / /.col-md-6
-              .col-lg-6
-                .card
-                  .card-header
-                    %h5.m-0 Featured
-                  .card-body
-                    %h6.card-title Special title treatment
-                    %p.card-text With supporting text below as a natural lead-in to additional content.
-                    %a.btn.btn-primary{:href => "#"} Go somewhere
-                .card.card-primary.card-outline
-                  .card-header
-                    %h5.m-0 Featured
-                  .card-body
-                    %h6.card-title Special title treatment
-                    %p.card-text With supporting text below as a natural lead-in to additional content.
-                    %a.btn.btn-primary{:href => "#"} Go somewhere
-              / /.col-md-6
-            / /.row
-          / /.container-fluid
-        / /.content
-      / /.content-wrapper
+        != yield
       / Control Sidebar
       %aside.control-sidebar.control-sidebar-dark
         / Control sidebar content goes here
         .p-3
           %h5 Title
           %p Sidebar content
-      / /.control-sidebar
       / Main Footer
       %footer.main-footer
         / To the right
@@ -241,11 +178,10 @@
           %a{:href => "https://adminlte.io"} AdminLTE.io
           = '.'
         All rights reserved.
-    / ./wrapper
     / REQUIRED SCRIPTS
     / jQuery
-    %script{:src => "adminlte/plugins/jquery/jquery.min.js"}
+    %script{:src => "/adminlte/plugins/jquery/jquery.min.js"}
     / Bootstrap 4
-    %script{:src => "adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"}
+    %script{:src => "/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"}
     / AdminLTE App
-    %script{:src => "adminlte/dist/js/adminlte.min.js"}
+    %script{:src => "/adminlte/dist/js/adminlte.min.js"}

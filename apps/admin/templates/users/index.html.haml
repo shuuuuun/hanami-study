@@ -1,6 +1,23 @@
-%h1 users#index
+.content-header
+  .container-fluid
+    .row.mb-2
+      .col-sm-6
+        %h1.m-0.text-dark Users List
 
-%h2 Users List
-%ul
-  - users.each do |user|
-    %li= user.email
+.content
+  .row
+    .col-md
+      .box
+        .box-body
+          %table.table.table-bordered.table-striped.dataTable
+            %tr
+              %th id
+              %th email
+              %th created_at
+              %th updated_at
+            - users.each do |user|
+              %tr
+                %td= user.id
+                %td= user.email
+                %td= user.created_at
+                %td= user.updated_at
