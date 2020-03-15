@@ -15,9 +15,20 @@
               %th email
               %th created_at
               %th updated_at
+              %th(style="min-width: 130px;")
             - users.each do |user|
               %tr
                 %td= user.id
                 %td= user.email
                 %td= user.created_at
                 %td= user.updated_at
+                %td
+                  .btn-group
+                    %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                      Actions
+                    -# %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                    -#   %span.caret
+                    %ul.dropdown-menu(style="text-align: center")
+                      %li!= link_to "編集", routes.edit_user_path(user.id)
+                      %li!= link_to "詳細", routes.user_path(user.id)
+                      %li!= link_to "削除", routes.user_path(user.id), method: :delete, data: { confirm: "本当に削除しますか？" }, style: "background: none; border: none;"
