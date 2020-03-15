@@ -15,19 +15,24 @@ module Web::Controllers::Users
 
     def call(params)
       # Hanami.logger.debug "params: #{params.inspect}"
-      @user = UserRepository.new.create_or_nil(params[:user])
-      if params.valid? && @user
-        # @user = UserRepository.new.create(params[:user])
-        login @user
-
-        flash[:notice] = 'signed up.'
-        redirect_to routes.root_path
-      else
+      unless params.valid?
         Hanami.logger.info "invalid params. errors: #{params.errors}"
         self.status = 400
         flash[:error] = 'invalid params.'
         redirect_to routes.signup_path
       end
+
+      @user = UserRepository.new.create_or_nil(params[:user])
+      unless @user
+        Hanami.logger.info "unprocessable entity. #{@user.inspect}"
+        self.status = 422
+        flash[:error] = 'unprocessable entity.'
+        redirect_to routes.signup_path
+      end
+
+      login @user
+      flash[:notice] = 'signed up.'
+      redirect_to routes.root_path
     end
   end
 end
