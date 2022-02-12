@@ -5,29 +5,25 @@ hanami-setup:
 	bundle exec hanami db migrate
 	# cd apps/admin && npm install # nodeはいってないわ
 
-.PHONY: infra-setup
-infra-setup:
+.PHONY: docker/*
+
+docker/setup:
 	docker-compose build
 	docker-compose run --rm hanami make hanami-setup
 
-.PHONY: infra-up
-infra-up:
+docker/up:
 	docker-compose up
 
-.PHONY: infra-up-d
-infra-up-d:
+docker/up-d:
 	docker-compose up -d
 
-.PHONY: infra-down
-infra-down:
+docker/down:
 	docker-compose down
 
-.PHONY: infra-attach-hanami
-infra-attach-hanami:
+docker/attach-hanami:
 	docker attach `docker-compose ps -q hanami`
 
-.PHONY: infra-logs
-infra-logs:
+docker/logs:
 	docker-compose logs -f
 
 .PHONY: db-console
